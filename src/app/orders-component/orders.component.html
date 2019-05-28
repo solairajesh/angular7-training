@@ -1,26 +1,27 @@
 
-<p>
-  I am <b>{{ title }}</b>
-  <!-- <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col"><a href="#" onClick="sortBy('orderId')">Invoice #</a></th>
-                                <th scope="col"><a href="#" onClick="sortBy('userName')">User</a></th>
-                                <th scope="col"><a href="#" onClick="sortBy('orderDate')">Order date</a></th>
-                                <th scope="col"><a href="#" onClick="sortBy('amount')">Amount</a></th>
-                            <th scope="col"><a href="#" onClick="sortBy('status')">Status</a></th>
-                            <th scope="col"><a href="#" onClick="sortBy('trackingNumber')">Tracking </a></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">order #${orders[i].orderId}</th>
-                                <td>${orders[i].userName}</td>
-                                <td>${orders[i].orderDate}</td>
-                                <td>$${orders[i].amount}</td>
-                            <td><span class="badge ${orders[i].statusBadge}">${orders[i].status}</span></td>
-                            <td>${orders[i].trackingNumber ? orders[i].trackingNumber : '-'}</td>
-                            </tr>
-                            </tbody>
-                        </table> -->
-</p>
+	<p>I am <b>{{ title }}</b></p>
+  <!-- {{ orders | json }} -->
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col"><a href="#" onClick="sortBy('orderId')">Invoice #</a></th>
+        <th scope="col"><a href="#" onClick="sortBy('userName')">User</a></th>
+        <th scope="col"><a href="#" onClick="sortBy('orderDate')">Order date</a></th>
+        <th scope="col"><a href="#" onClick="sortBy('amount')">Amount</a></th>
+    <th scope="col"><a href="#" onClick="sortBy('status')">Status</a></th>
+    <th scope="col"><a href="#" onClick="sortBy('trackingNumber')">Tracking </a></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <th scope="row">order #{{order.orderId}}</th>
+        <td>{{order.userName}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>${{order.amount}}</td>
+    <td><span class="order-status alert {{order.statusBadge}}">{{order.status}}</span></td>
+    <td *ngIf="order.trackingNumber; else elseBlock">{{order.trackingNumber}}</td>
+    <ng-template #elseBlock><td>-</td></ng-template>
+    </tr>
+    </tbody>
+</table>
