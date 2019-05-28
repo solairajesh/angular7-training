@@ -8,7 +8,7 @@ import { OrdersComponent } from './orders-component/orders.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule, HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, OrdersComponent ],
   bootstrap:    [ AppComponent ]
 })
