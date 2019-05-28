@@ -1,7 +1,7 @@
 
 	<p>I am <b>{{ title }}</b></p>
   <!-- {{ orders | json }} -->
-
+  <h2 class="text-warning">{{ (orders.length) ? '' : 'Loading orders...' }}</h2>
   <table class="table table-striped">
     <thead>
     <tr>
