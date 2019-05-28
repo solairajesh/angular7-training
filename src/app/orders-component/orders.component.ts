@@ -8,6 +8,7 @@ import { OrdersService } from './orders.service';
 export class OrdersComponent implements OnInit{
 
   orders = [];
+  title = 'Orders Component';
 
   constructor(
     private ordersService: OrdersService
