@@ -8,6 +8,7 @@ import { OrdersService } from './orders.service';
 export class OrdersComponent implements OnInit{
 
   orders = [];
+  newOrder;
   title = 'Orders Component';
 
   constructor(
@@ -16,6 +17,7 @@ export class OrdersComponent implements OnInit{
 
   ngOnInit() {
     this.getOrders();
+    this.setNewOrder();
     //console.log(this.ordersService);
     //console.log(this);
   }
@@ -23,6 +25,23 @@ export class OrdersComponent implements OnInit{
   getOrders(): void {
     this.ordersService.getOrders()
     .subscribe(orders => this.orders = orders);
+  }
+
+  addOrder() {
+    this.orders.push(this.newOrder);
+    this.setNewOrder();
+  }
+
+  setNewOrder() {
+      this.newOrder = {
+        orderId: "",
+        userName: "",
+        orderDate: "",
+        amount: "",
+        status: "",
+        statusBadge: "alert-success",
+        trackingNumber: ""
+      };
   }
     
 } 
