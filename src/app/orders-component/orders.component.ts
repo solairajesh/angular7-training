@@ -32,6 +32,14 @@ export class OrdersComponent implements OnInit{
     this.setNewOrder();
   }
 
+  deleteOrder() {
+    this.orders = this.orders.filter((order, index, array) => {
+      if(order.active){
+        return true;
+      }
+    });
+  }
+
   setNewOrder() {
       this.newOrder = {
         orderId: "",
@@ -40,7 +48,8 @@ export class OrdersComponent implements OnInit{
         amount: "",
         status: "",
         statusBadge: "alert-success",
-        trackingNumber: ""
+        trackingNumber: "",
+        active: true
       };
   }
     
