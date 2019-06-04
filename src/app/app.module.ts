@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { OrdersComponent } from './orders-component/orders.component';
 import { HttpClientModule } from '@angular/common/http';
-import { OrdersPipe } from './orders-component/orders.pipe'
+import { OrdersPipe } from './orders-component/orders.pipe';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule ],
+  imports:      [ BrowserModule, FormsModule, HttpClientModule, AppRoutingModule ],
   declarations: [ AppComponent, HelloComponent, OrdersComponent, OrdersPipe ],
   bootstrap:    [ AppComponent ]
 })
