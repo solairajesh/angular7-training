@@ -2,6 +2,7 @@
 	I am <b>{{ title }}</b></p>
   <!-- {{ orders | json }} -->
   <h2 class="text-warning">{{ (orders.length) ? '' : 'Loading orders...' }}</h2>
+  <h3>There are {{orders | activeOrdersCount}} active orders in {{orders.length}}</h3>
   <!-- <form class="form-inline"> -->
   <table class="table table-striped">
     <thead>
