@@ -2,6 +2,7 @@
 	I am <b>{{ title }}</b></p>
   <!-- {{ orders | json }} -->
   <h2 class="text-warning">{{ (orders.length) ? '' : 'Loading orders...' }}</h2>
+  <img [class.hide]="orders.length" src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" width="200px">
   <h3>There are {{orders | activeOrdersCount}} active orders in {{orders.length}}</h3>
   <!-- <form class="form-inline"> -->
   <table class="table table-striped">
@@ -17,7 +18,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let order of orders">
-        <th scope="row"><input class="order-list-checkbox" type="checkbox" [(ngModel)]=order.active>order #{{order.orderId}}</th>
+        <th scope="row"><input class="order-list-checkbox" type="checkbox" [(ngModel)]=order.active><a routerLink="/orders/{{order.orderId}}"> #{{order.orderId}}</a></th>
         <td>{{order.userName}}</td>
         <td>{{order.orderDate}}</td>
         <td>${{order.amount}}</td>
